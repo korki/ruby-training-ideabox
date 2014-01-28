@@ -2,7 +2,7 @@ require './lib/ideabox/idea'
 require './lib/ideabox/idea_store'
 
 describe IdeaStore do
-  after(:each) do
+  before(:each) do
     IdeaStore.delete_all
   end
 

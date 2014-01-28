@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IdeaBox</title>
+  </head>
+  <body>
+    <h1>Ideas</h1>
+    <ul>
+      <% ideas.each do |idea| %>
+        <li><%= idea.title %> - <%= idea.description %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>
