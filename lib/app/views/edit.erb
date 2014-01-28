@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IdeaBox</title>
+  </head>
+  <body>
+    <h1>Edit your idea</h1>
+    <form action="/<%= idea.id %>" method="POST">
+      <label for="title">Title</label>
+      <input type='text' id="title" name="title" value="<%= idea.title %>"/><br/>
+      <label for="description">Description</label>
+      <textarea id="description" name="description"><%= idea.description %></textarea><br/>
+      <input type="hidden" name="_method" value="PUT">
+      <input type='submit' value='Save'/>
+    </form>
+  </body>
+</html>

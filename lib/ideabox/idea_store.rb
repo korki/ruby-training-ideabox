@@ -1,15 +1,15 @@
 class IdeaStore
   def self.save(idea)
-    @ideas ||= []
+    all
     if idea.new?
       idea.id = next_id
-      @ideas << idea
+      all << idea
     end
     idea.id
   end
 
   def self.all
-    @ideas
+    @ideas ||= []
   end
 
   def self.find(id)
@@ -30,5 +30,9 @@ class IdeaStore
 
   def self.delete_all
     @ideas = []
+  end
+
+  def self.find_by_title(title)
+    all.find { |idea| idea.title == title }
   end
 end
