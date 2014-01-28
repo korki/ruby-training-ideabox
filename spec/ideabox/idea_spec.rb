@@ -35,5 +35,24 @@ describe Idea do
     idea = Idea.new("dinner", "beef stew")
     idea.id = 1
     expect(idea.id).to eq(1)
-  end      
+  end    
+
+  it "updates attributes" do
+    idea = Idea.new("drinks", "sparkly water")
+    idea.title = "happy hour"
+    idea.description = "mojitos"
+    expect(idea.title).to eq("happy hour")
+    expect(idea.description).to eq("mojitos")
+  end  
+
+  it "is new" do
+    idea = Idea.new('sleep', 'all day')
+    expect(idea.new?).to be_true
+  end    
+
+  it "is old" do
+    idea = Idea.new('drink', 'lots of water')
+    idea.id = 1
+    expect(idea.new?).to be_false
+  end  
 end
