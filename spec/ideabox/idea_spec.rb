@@ -31,5 +31,9 @@ describe Idea do
     expect(ideas.sort).to eq([diet, drink, exercise])
   end
 
-      
+  it "has an id" do
+    idea = Idea.new("dinner", "beef stew")
+    idea.id = 1
+    expect(idea.id).to eq(1)
+  end      
 end

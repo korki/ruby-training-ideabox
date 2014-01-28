@@ -1,5 +1,6 @@
 class Idea
 
+  attr_accessor :id
   attr_reader :title, :description, :rank
 
   def initialize(title, description)
