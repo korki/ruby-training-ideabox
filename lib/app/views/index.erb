@@ -11,11 +11,22 @@
       <input type='submit' value="Save"/>
     </form>
 
-    <h2>Your ideas</h2>
-    <ul>
-      <% ideas.each do |idea| %>
-        <li><%= idea.title %> - <%= idea.description %></li>
-      <% end %>
-    </ul>
+  <h2>Your ideas</h2>
+  <ul>
+    <% ideas.each do |idea| %>
+      <li id="idea_<%= idea.id %>">
+        <%= idea.rank %>: <%= idea.title %> - <%= idea.description %>
+        <a href="/<%= idea.id %>">Edit</a>
+        <form action='/<%= idea.id %>' method='POST'>
+          <input type="hidden" name="_method" value="DELETE">
+          <input type='submit' value="Delete"/>
+        </form>
+        <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
+          <input type='submit' value="+"/>
+        </form>
+      </li>
+    <% end %>
+</ul>
   </body>
 </html>
+

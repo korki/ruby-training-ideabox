@@ -40,4 +40,38 @@ describe IdeaboxApp do
     expect(idea.description).to eq("scary vampire")
   end
 
+  it "updates an idea" do
+    id = IdeaStore.save Idea.new('sing', 'happy songs')
+
+    put "/#{id}", {title: 'yodle', description: 'joyful songs'}
+
+    expect(last_response.status).to eq(302)
+
+    idea = IdeaStore.find(id)
+    expect(idea.title).to eq('yodle')
+    expect(idea.description).to eq('joyful songs')
+  end
+
+  it "deletes an idea" do
+    id = IdeaStore.save Idea.new('breathe', 'fresh air in the mountains')
+
+    expect(IdeaStore.count).to eq(1)
+
+    delete "/#{id}"
+
+    expect(last_response.status).to eq(302)
+    expect(IdeaStore.count).to eq(0)
+  end
+
+  it "likes an idea" do
+    id = IdeaStore.save Idea.new('run', 'really, really fast')
+
+    post "/#{id}/like"
+
+    expect(last_response.status).to eq(302)
+
+    idea = IdeaStore.find(id)
+    expect(idea.rank).to eq(1)
+  end
+  
 end
