@@ -23,4 +23,19 @@ describe "managing ideas" do
     visit '/'
     expect(page).to have_content("chocolate chip cookies")
   end
+
+  it "manages ideas" do
+    # Create an idea
+    visit '/'
+    fill_in 'title', :with => 'eat'
+    fill_in 'description', :with => 'chocolate chip cookies'
+    click_button 'Save'
+    expect(page).to  have_content("chocolate chip cookies")
+
+    # Edit the idea
+
+    # Delete the idea
+
+  end
+
 end

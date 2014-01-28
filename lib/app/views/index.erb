@@ -4,7 +4,14 @@
     <title>IdeaBox</title>
   </head>
   <body>
-    <h1>Ideas</h1>
+    <h1>Add a new idea</h1>
+    <form action='/' method='POST'>
+      <input type='text' name='title'/><br/>
+      <textarea name='description'></textarea><br/>
+      <input type='submit' value="Save"/>
+    </form>
+
+    <h2>Your ideas</h2>
     <ul>
       <% ideas.each do |idea| %>
         <li><%= idea.title %> - <%= idea.description %></li>
